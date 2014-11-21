@@ -1,4 +1,3 @@
-
 //import com.sun.istack.internal.NotNull;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -24,6 +23,7 @@ public class Registro {
     String contraseña2;
     String contraseña3;
     String imagen;
+    baseDeDatos datos = new baseDeDatos();
 
     public String getCarrera() {
         return carrera;

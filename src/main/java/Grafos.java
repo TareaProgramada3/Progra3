@@ -1,3 +1,4 @@
+//https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/t31.0-8/s960x960/10264179_558098297655263_5031121342751177084_o.jpg
 public class Grafos<E> {
     public static Lista<Nodo> listaNodos;
     public static class Nodo<E>{
@@ -149,6 +150,20 @@ public class Grafos<E> {
         if(r != null){
             listaNodos.eliminar(r);
         }
+    }
+    public int buscarRelacion(Nodo n1, Nodo n2){
+        Nodo nodo1 = listaNodos.buscar(n1);
+        Nodo nodo2 = listaNodos.buscar(n2);
+        Nodo aux = nodo1.lista.primerNodo;
+        int i = 0;
+        while (i < nodo1.lista.size){
+            if (aux.getDato() == nodo2.getDato()){
+                return i;
+            }
+            aux = aux.siguiente;
+            i ++;
+        }
+        return -1;
     }
     public static void main(String[] args) {
         Grafos d = new Grafos();
