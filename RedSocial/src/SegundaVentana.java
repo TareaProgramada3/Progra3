@@ -1,6 +1,9 @@
 
 import java.awt.Image;
+import java.io.IOException;
 import static java.util.Locale.filter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -19,12 +22,21 @@ public class SegundaVentana extends javax.swing.JFrame {
     /**
      * Creates new form SegundaVentana
      */
+    
+    Registro Registro = new Registro();
     private FileNameExtensionFilter filter=new FileNameExtensionFilter("Archivo",".jpg");
     public static String rutaimagen="";
+    public void seteo() throws IOException{
+        Registro.singUn();
+        AquiNombre.setText(Registro.nombre);
+        AquiCorreo.setText(Registro.correo1);
+        AquiAño.setText(Registro.año);
+        AquiEdad.setText(Registro.edad);
+        
+    }
     public SegundaVentana() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -217,7 +229,7 @@ public class SegundaVentana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser dlg= new JFileChooser();
         dlg.setFileFilter(filter);
@@ -225,11 +237,11 @@ public class SegundaVentana extends javax.swing.JFrame {
         if(opcion==JFileChooser.APPROVE_OPTION){
             String file = dlg.getSelectedFile().getPath();
             /**
-             * toma la ruta de la imagen
-             */
+            * toma la ruta de la imagen
+            */
             rutaimagen=file;
             FOTO.setIcon(new ImageIcon(file));
-            ImageIcon icono=new ImageIcon(file); 
+            ImageIcon icono=new ImageIcon(file);
             Image logo = icono.getImage();
             Image newimagen=logo.getScaledInstance(175, 175, java.awt.Image.SCALE_SMOOTH);
             ImageIcon newicono =new ImageIcon(newimagen);
@@ -237,7 +249,7 @@ public class SegundaVentana extends javax.swing.JFrame {
             FOTO.setSize(200,200);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -264,11 +276,16 @@ public class SegundaVentana extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(SegundaVentana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SegundaVentana().setVisible(true);
+                SegundaVentana d = new SegundaVentana();
+                try {
+                    d.seteo();
+                } catch (IOException ex) {
+                    Logger.getLogger(SegundaVentana.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                d.setVisible(true);
             }
         });
     }

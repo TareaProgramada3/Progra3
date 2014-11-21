@@ -16,7 +16,7 @@ public class Registro {
     String contraseña1;
     String contraseña2;
     String contraseña3;
-    String imagen;
+    
     baseDeDatos datos = new baseDeDatos();
 
     public String getCarrera() {
@@ -27,14 +27,7 @@ public class Registro {
         this.carrera = carrera;
     }
 
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-        
+    
     public String getEdad() {
         return edad;
     }
@@ -124,12 +117,11 @@ public class Registro {
     }
     
     public void singUn() throws IOException{
-        if(contraseña2==contraseña3){
-            this.datos.almacenarFicherosDatosClientes(correo2, contraseña2, nombre, apellido, año, edad, direccion, telefono, carrera, imagen); 
+        
+            this.datos.almacenarFicherosDatosClientes(correo2, contraseña2, nombre, apellido, año, edad, carrera); 
             datos.leerFicherosClientes();
             datos.matrizUsuarios();
-            datos.inicios();
-        }
+        
         
     }
     
@@ -151,10 +143,7 @@ public class Registro {
         this.apellido=login[3];
         this.año=login[4];
         this.edad=login[5];
-        this.direccion=login[6];
-        this.telefono=login[7];
-        this.carrera=login[8];
-        this.imagen=login[9];
+        this.carrera=login[6];
     }
     
 }

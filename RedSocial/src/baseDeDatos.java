@@ -36,25 +36,16 @@ public class baseDeDatos
     
     public void leerFicherosClientes() throws FileNotFoundException, IOException
     {        
-        this.fichero = new File ("Documents\\NetBeansProjects\\TP3\\src\\main\\java\\Base de datos\\datosClientes.txt");
+        this.fichero = new File ("src/Base de Datos/datosClientes.txt");
         this.lectorDeFichero = new FileReader (this.fichero);
     }
     
-    public void leerFicherosAmigos(String nombre) throws FileNotFoundException, IOException
+    public void leerFicherosAmigos(String correo) throws FileNotFoundException, IOException
     {        
-        this.fichero = new File ("Documents\\NetBeansProjects\\TP3\\src\\main\\java\\Base de datos\\"+nombre+".txt");
+        this.fichero = new File ("src/Base de Datos/"+correo+".txt");
         this.lectorDeFichero = new FileReader (this.fichero);
     }
     
-    public void inicios() throws IOException
-    {
-        this.almacenadorTemporalDeLectura = new BufferedReader(this.lectorDeFichero);
-        grafo.agregar(generica);
-        this.grafo.agregar(this.usuarios[0]);
-        this.grafo.getNodo(0).agregarRelacion(this.usuarios[0]);
-        this.lectorDeFichero.close();
-    }
-     
     public void matrizUsuarios() throws IOException
     {
         this.almacenadorTemporalDeLectura = new BufferedReader(this.lectorDeFichero);
@@ -71,6 +62,7 @@ public class baseDeDatos
                 if(arregloLinea[ind]=='#')
                 {
                     this.usuarios[indicador]=generica;
+                    this.grafo.agregar(generica);
                     this.sizeUsuarios++;
                     indicador++;
                     break;
@@ -120,7 +112,7 @@ public class baseDeDatos
     
     public void almacenarFicherosClientes(String nombre, String direccion) throws IOException{
         
-        this.escritorDeArchivos = new FileWriter("Documents\\NetBeansProjects\\TP3\\src\\main\\java\\Base de datos\\"+direccion+".txt",true);
+        this.escritorDeArchivos = new FileWriter("src/Base de Datos/"+direccion+".txt",true);
         this.impresorDeArchibos = new PrintWriter(this.escritorDeArchivos);
         this.impresorDeArchibos.println(nombre);
         this.escritorDeArchivos.close();
@@ -129,10 +121,10 @@ public class baseDeDatos
     /**
     * almacena en .txt la prioridad , fecha y hora de atencion de los clientes
     */
-    public void almacenarFicherosDatosClientes(String correo, String contra, String nombre, String apellido, String año, String edad, String direccion, String telefono, String carrera, String foto) throws IOException
+    public void almacenarFicherosDatosClientes(String correo, String contra, String nombre, String apellido, String año, String edad, String carrera) throws IOException
     {
-        String aux= correo +","+contra+","+nombre+","+apellido+","+año+","+edad+","+direccion+","+telefono+","+carrera+","+foto+",#";
-        this.escritorDeArchivos = new FileWriter("Documents\\NetBeansProjects\\TP3\\src\\main\\java\\Base de datos\\datosClientes.txt",true);
+        String aux= correo +","+contra+","+nombre+","+apellido+","+año+","+edad+","+carrera+",#";
+        this.escritorDeArchivos = new FileWriter("src/Base de Datos/datosClientes.txt",true);
         this.impresorDeArchibos = new PrintWriter(this.escritorDeArchivos);
         this.impresorDeArchibos.println( aux );
         this.escritorDeArchivos.close();
