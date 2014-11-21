@@ -12,7 +12,9 @@ and open the template in the editor.
     </head>
     <body>
         <body style="background: lightblue"/>
-                <graphicImage value="#{Registro.imagen}"/>
+        <h:form>
+                <h:dataTable />
+                <h:commandButton value="lololololo" action="#{Registro.megalol()}"/>
                 <br/><br/>
                 <h:outputLabel style="color: black" for="nombre1" value="Nombre: "/>
                 <br/><br/>
@@ -25,5 +27,6 @@ and open the template in the editor.
                 <outputLabel style="color: black" for="correo" value="Teléfono: "/>
                 <br/><br/>
                 <outputLabel style="color: black" for="correo" value="Dirección: "/>
+        </h:form>
     </body>
 </html>

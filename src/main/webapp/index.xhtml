@@ -32,44 +32,25 @@
                 <h:inputSecret style="background-color: red" id="contraseña3" value="#{Registro.contraseña3}"/>
                 <br/><br/>
                 <h:outputLabel style="color: green" for="nombre" value="Nombre                     "/>
-                <h:inputSecret style="background-color: green" id="nombre" value="#{Registro.nombre}"/>
+                <h:inputText style="background-color: green" id="nombre" value="#{Registro.nombre}"/>
                 <br/><br/>
                 <h:outputLabel style="color: yellow" for="apellido" value="Apellido                   "/>
-                <h:inputSecret style="background-color: yellow" id="apellido" value="#{Registro.apellido}"/>
+                <h:inputText style="background-color: yellow" id="apellido" value="#{Registro.apellido}"/>
                 <br/><br/>
                 <h:outputLabel style="color: red" for="año" value="Año de carrera             "/>
-                <h:inputSecret style="background-color: red" id="año" value="#{Registro.año}"/>
+                <h:inputText style="background-color: red" id="año" value="#{Registro.año}"/>
                 <br/><br/>
                 <h:outputLabel style="color: green" for="edad" value="edad                       "/>
                 <h:inputText style=" background-color: green" id="edad" value="#{Registro.edad}"/>
                 <br/><br/>
                 <h:outputLabel style="color: yellow" for="direccion" value="Direccion                  "/>
-                <h:inputSecret style="background-color: yellow" id="direccion" value="#{Registro.direccion}"/>
+                <h:inputText style="background-color: yellow" id="direccion" value="#{Registro.direccion}"/>
                 <br/><br/>
                 <h:outputLabel style="color: red" for="telefono" value="Telefono                   "/>
-                <h:inputSecret style="background-color: red" id="telefono" value="#{Registro.telefono}"/>
-                <br/><br/><h:outputLabel style="color: green" for="carrera" value="carrera                    "/><select style="background-color: yellow">
-                    <option style="background-color: red" value="carrera">Administración de Empresas</option>
-                    <option style="background-color: green" value="carrera">Administración de Tecnologías de Información</option>
-                    <option style="background-color: yellow" value="carrera">Educación Técnica</option>
-                    <option style="background-color: red" value="carrera">Enseñanza de la Matemática asistida por computadora</option>
-                    <option style="background-color: green" value="carrera">Gestión en Turismo Sostenible</option>
-                    <option style="background-color: yellow" value="carrera">Ingeniería Agrícola</option>
-                    <option style="background-color: red" value="carrera">Ingeniería Agronegocios</option>
-                    <option style="background-color: green" value="carrera">Ingeniería Ambiental</option>
-                    <option style="background-color: yellow" value="carrera">Ingeniería en Biotecnología</option>
-                    <option style="background-color: red" value="carrera">Ingeniería en Computación</option>
-                    <option style="background-color: green" value="carrera">Ingeniería en Computadores</option>
-                    <option style="background-color: yellow" value="carrera">Ingeniería en Construcción</option>
-                    <option style="background-color: red" value="carrera">Ingeniería en Diseño Industrial</option>
-                    <option style="background-color: green" value="carrera">Ingeniería en Electrónica</option>
-                    <option style="background-color: yellow" value="carrera">Ingeniería en Mantenimiento Industrial</option>
-                    <option style="background-color: red" value="carrera">Ingeniería en Materiales</option>
-                    <option style="background-color: green" value="carrera">Ingeniería en Producción de Industrial</option>
-                    <option style="background-color: yellow" value="carrera">Ingeniería en Seguridad Laboral e Higiene Ambiental</option>
-                    <option style="background-color: red" value="carrera">Ingeniería Forestal</option>
-                    <option style="background-color: green" value="carrera">Ingeniería Mecatrónica</option>
-                </select>
+                <h:inputText style="background-color: red" id="telefono" value="#{Registro.telefono}"/>
+                <br/><br/>
+                <h:outputLabel style="color: green" for="carrera" value="carrera                    "/>
+                <h:inputText style="background-color: red" id="carrera" value="#{Registro.carrera}"/>
                 </pre>
                 <h:commandButton action="segundoxhtml.xhtml" value="lol"/>
                 

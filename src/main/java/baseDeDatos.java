@@ -12,6 +12,7 @@ public class baseDeDatos
     public FileWriter escritorDeArchivos;
     public PrintWriter impresorDeArchibos;
     String [] generica = new String [10];
+    String []  amigos = new String [999];
      
     public baseDeDatos()
     {
@@ -28,10 +29,10 @@ public class baseDeDatos
         this.lectorDeFichero = new FileReader (this.fichero);
     }
      
-    public void ArregloUsuarios() throws IOException
+    public void ArrogloAmigos() throws IOException
     {
         this.almacenadorTemporalDeLectura = new BufferedReader(this.lectorDeFichero);
-        String linea = "";
+        String linea = ""; 
         int aux=0;
         while((linea=this.almacenadorTemporalDeLectura.readLine()) != null)
         {
@@ -42,6 +43,38 @@ public class baseDeDatos
                 
                 if(arregloLinea[ind]=='#')
                 {
+                    //falta crear aqui el obj nodo del grafo
+                    break;
+                }
+                if(arregloLinea[ind] != ',')
+                {
+                    linea = linea + arregloLinea[ind] + "";
+                }
+                else
+                {
+                    this.generica[aux]=(linea);
+                    linea="";
+                    aux++;
+                }    
+            }
+        }
+        this.lectorDeFichero.close();
+    }
+    public void ArregloUsuarios() throws IOException
+    {
+        this.almacenadorTemporalDeLectura = new BufferedReader(this.lectorDeFichero);
+        String linea = ""; 
+        int aux=0;
+        while((linea=this.almacenadorTemporalDeLectura.readLine()) != null)
+        {
+            char[] arregloLinea = linea.toCharArray();
+            linea="";
+            for(int ind = 0; ind < arregloLinea.length - 1 ; ind++ )
+            {
+                
+                if(arregloLinea[ind]=='#')
+                {
+                    //falta crear aqui el obj nodo del grafo
                     break;
                 }
                 if(arregloLinea[ind] != ',')

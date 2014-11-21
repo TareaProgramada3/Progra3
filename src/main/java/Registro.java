@@ -10,6 +10,7 @@ import javax.inject.Named;
 
 public class Registro {
 
+    String [] lol= new String[6];
     String edad;
     String carrera;
     String direccion;
@@ -129,8 +130,20 @@ public class Registro {
     }
     
     public void mensaje (){
-        
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(this.imagen));
+       FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(this.año));
     }
     
+    public void megalol(){
+        lol[0]="maria";
+        lol[1]="pepe";
+        lol[2]="dani";
+        lol[3]="jorge";
+        lol[4]="kenneth";
+        lol[5]="ares";
+        int i=0;
+        while(i<6){
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(lol[i]));
+           i++;
+        }
+    }
 }
