@@ -1,15 +1,9 @@
-//import com.sun.istack.internal.NotNull;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.inject.Named;
 
-@Named (value="Registro")
-@RequestScoped
+import java.io.IOException;
 
 public class Registro {
 
-    String [] lol= new String[6];
+    String [] login= new String[10];
     String edad;
     String carrera;
     String direccion;
@@ -129,21 +123,38 @@ public class Registro {
         this.contraseña3 = contraseña3;
     }
     
-    public void mensaje (){
-       FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(this.año));
+    public void singUn() throws IOException{
+        if(contraseña2==contraseña3){
+            this.datos.almacenarFicherosDatosClientes(correo2, contraseña2, nombre, apellido, año, edad, direccion, telefono, carrera, imagen); 
+            datos.leerFicherosClientes();
+            datos.matrizUsuarios();
+            datos.inicios();
+        }
+        
     }
     
-    public void megalol(){
-        lol[0]="maria";
-        lol[1]="pepe";
-        lol[2]="dani";
-        lol[3]="jorge";
-        lol[4]="kenneth";
-        lol[5]="ares";
-        int i=0;
-        while(i<6){
-           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(lol[i]));
-           i++;
+    public void singIn() throws IOException{
+        datos.leerFicherosClientes();
+        datos.matrizUsuarios();
+        datos.leerFicherosAmigos(correo1);
+        this.login=datos.encuentreme(correo1);
+        if (this.contraseña1==login[1]){
+            segunda();
         }
     }
+    
+    public void segunda(){
+        
+        this.correo1=login[0];
+        this.contraseña1=login[1];
+        this.nombre=login[2];
+        this.apellido=login[3];
+        this.año=login[4];
+        this.edad=login[5];
+        this.direccion=login[6];
+        this.telefono=login[7];
+        this.carrera=login[8];
+        this.imagen=login[9];
+    }
+    
 }
